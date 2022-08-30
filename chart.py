@@ -8,7 +8,6 @@ def showGraph(show, arr):
     plt.figure(1, figsize=(10, 10))
     plt.subplot()
     plt.plot(xs,ys, color='black',  label='shape')
-    #plt.plot(xs,ys, color='blue', marker='o',  label='shape2')
     plt.xlim(-1.5, 1.5)
     plt.ylim(-1.5, 1.5)
     plt.gca().set_aspect('equal', adjustable='box')
