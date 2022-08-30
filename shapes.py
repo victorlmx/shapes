@@ -20,9 +20,7 @@ def initialize():
 	for i in range(math.floor(round(2*math.pi,3)*settings.circleComplexity)): #change the line if you want more points in the circles
 		angles.append(i/settings.circleComplexity)
 
-		
-	print("###Your circle has these many points",len(angles))
-	#printDebug(angles)
+
 	for a in angles: 
 		settings.coords.append([x(a),y(a)]) #get the coordinates for each angle
 
@@ -36,16 +34,15 @@ initialize()
 for d in range(settings.mutationCycles):
 	mutations.mutate()
 	settings.coords.append(settings.coords[0]) #close the circle
-	if (len(settings.coords)<settings.circleComplexity/2):
+	if (len(settings.coords)<settings.circleComplexity):
+		print("Ending the mutations due to too many points lost")
 		break
-	if(d%1==0): #display all mutations?
+	if(d%10==0): #display all mutations?
 		chart.cleanAndPrint()
 
+print("Process complete")
+
 settings.coords.append(settings.coords[0]) #close the circle
-print("###Your circle only has these many points now",len(settings.coords))
-
-
-
 
 chart.cleanAndPrint()
 chart.cleanAndPrint()

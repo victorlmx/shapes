@@ -19,6 +19,7 @@ def showGraph(show, arr):
         plt.show()
     settings.maxPrints -= 1
     if (settings.maxPrints<0):
+        print("Exiting due to too many printing")
         exit()
 
 def cleanAndPrint(printSteps=False):

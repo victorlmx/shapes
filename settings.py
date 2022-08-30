@@ -6,9 +6,9 @@ def init():
 	global mutations
 	global coords
 
-	maxPrints = 15
+	maxPrints = 10
 	circleComplexity = 100 # 10, 100, 1000
-	mutationCycles=10
+	mutationCycles=500
 	mutations = 0
 	coords=[]
 	
