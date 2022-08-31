@@ -35,7 +35,9 @@ def mutate(v, rounded=False, eliminate=False, nucleus=False, exile=False, fix=Fa
 			settings.coords.pop(v)
 		if (v>0 and v<len(settings.coords)-2):
 			settings.coords.pop(v)
-		settings.coords.append(settings.coords[0])
+		if settings.coords[v]!=settings.coords[0]:
+			settings.coords.append(settings.coords[0])
+
 	else:
 		zx= random.randint(-25,25)/1000
 		zy= random.randint(-25,25)/1000
@@ -58,21 +60,21 @@ def mutate(v, rounded=False, eliminate=False, nucleus=False, exile=False, fix=Fa
 def run():
 	v=0
 	while (v < len(settings.coords)-1 and len(settings.coords) > settings.minimumDots):
-		print(len(settings.coords))
+		#print(len(settings.coords))
 		rand = random.randint(0,500)
-		if(rand==1):
+		if(rand==1 and random.randint(0,settings.rangeElimintate)==1):
 			mutate(v, eliminate=True)
-		elif (rand==2):
+		elif (rand==2 and random.randint(0,settings.rangeRound)==1):
 			mutate(v, rounded=True)
-		elif (rand%100==0):
+		elif (rand%100==0 and random.randint(0,settings.rangeSharp)==1):
 			mutate(v)
-		elif (rand==4 and random.randint(0,50)==1):
+		elif (rand==4 and random.randint(0,settings.rangeNucleus)==1):
 			mutate(v,nucleus=True)
-		elif (rand==5 and random.randint(0,50)==1):
+		elif (rand==5 and random.randint(0,settings.rangeExile)==1):
 			mutate(v,exile=True)
-		elif (rand==6 and random.randint(0,200)==1):
-			print("fix!!")
+		elif (rand==6 and random.randint(0,settings.rangeFix)==1):
 			mutate(v,fix=True)
 		v += 1
+
 
 

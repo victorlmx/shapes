@@ -5,7 +5,7 @@ import matplotlib as mpl
 
 def showGraph(show, arr):
     xs, ys = zip(*arr)
-    plt.figure(1, figsize=(10, 10))
+    plt.figure(1, figsize=(7, 7))
     plt.subplot()
     plt.plot(xs,ys, color='black',  label='shape')
     plt.xlim(-1.5, 1.5)

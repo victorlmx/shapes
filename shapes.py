@@ -16,10 +16,19 @@ def makeCircle():
 		settings.coords.append([1*math.cos(a),1*math.sin(a)]) #get the coordinates for each angle
 
 	settings.coords.append(settings.coords[0]) #close the circle
-	chart.cleanAndPrint()
+	#chart.cleanAndPrint()
 
 
 settings.init()
+print("Random configs:")
+print("minimumDots",settings.minimumDots)
+print("rangeElimintate",settings.rangeElimintate)
+print("rangeRound",settings.rangeRound)
+print("rangeNucleus",settings.rangeNucleus)
+print("rangeExile",settings.rangeExile)
+print("rangeSharp",settings.rangeSharp)
+print("rangeFix",settings.rangeSharp)
+
 makeCircle()
 
 for d in range(settings.mutationCycles):
@@ -28,10 +37,11 @@ for d in range(settings.mutationCycles):
 	if (len(settings.coords) < settings.minimumDots):
 		print("Ending the mutations due to too many points lost")
 		break
-	if(d%20==0): #change this value to skip displaying some mutations
-		chart.cleanAndPrint()
+	#if(d%20==0): #change this value to skip displaying some mutations
+	#	chart.cleanAndPrint()
 
-
+print("Size:", len(settings.coords))
 print("Process complete")
 chart.cleanAndPrint()
+exit()	
 
