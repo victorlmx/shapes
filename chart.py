@@ -8,8 +8,8 @@ def showGraph(show, arr):
     plt.figure(1, figsize=(7, 7))
     plt.subplot()
     plt.plot(xs,ys, color='black',  label='shape')
-    plt.xlim(-1.5, 1.5)
-    plt.ylim(-1.5, 1.5)
+    plt.xlim(-5.5, 5.5)
+    plt.ylim(-5.5, 5.5)
     plt.gca().set_aspect('equal', adjustable='box')
     ax = plt.gca()
     ax.get_xaxis().set_visible(False)
@@ -25,8 +25,6 @@ def cleanAndPrint(printSteps=False):
     copy=[]
     for d in range(len(settings.coords)-1): #shows the process of painting the shape
         copy.append(settings.coords[d])
-        if (printSteps and d%80==0):  #how many steps to display at once
-            showGraph(1, copy)
     copy.append(copy[0])
     showGraph(1,copy)
     

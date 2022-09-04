@@ -39,8 +39,8 @@ def mutate(v, rounded=False, eliminate=False, nucleus=False, exile=False, fix=Fa
 			settings.coords.append(settings.coords[0])
 
 	else:
-		zx= random.randint(-25,25)/1000
-		zy= random.randint(-25,25)/1000
+		zx= random.randint(-5,5)/1000
+		zy= random.randint(-5,5)/1000
 		settings.coords[v][0]=settings.coords[v][0]+ zx
 		settings.coords[v][1]=settings.coords[v][1]+ zy
 	if(rounded): 
@@ -53,26 +53,23 @@ def mutate(v, rounded=False, eliminate=False, nucleus=False, exile=False, fix=Fa
 		roundDown(v-3,zx/1.5,zy/1.5)
 		roundDown(v-4,zx/1.5,zy/1.5)
 
-    #this looks sick:
-	#if (settings.coords[v][0]>1): settings.coords[v][0]=1
-	#if (settings.coords[v][1]<0): settings.coords[v][1]=0
+  
 
 def run():
 	v=0
 	while (v < len(settings.coords)-1 and len(settings.coords) > settings.minimumDots):
-		#print(len(settings.coords))
-		rand = random.randint(0,500)
+		rand = random.randint(0,10)
 		if(rand==1 and random.randint(0,settings.rangeElimintate)==1):
 			mutate(v, eliminate=True)
-		elif (rand==2 and random.randint(0,settings.rangeRound)==1):
+		if (rand==2 and random.randint(0,settings.rangeRound)==1):
 			mutate(v, rounded=True)
-		elif (rand%100==0 and random.randint(0,settings.rangeSharp)==1):
+		if (rand==2 and random.randint(0,settings.rangeSharp)==1):
 			mutate(v)
-		elif (rand==4 and random.randint(0,settings.rangeNucleus)==1):
+		if (rand==4 and random.randint(0,settings.rangeNucleus)==1):
 			mutate(v,nucleus=True)
-		elif (rand==5 and random.randint(0,settings.rangeExile)==1):
+		if (rand==5 and random.randint(0,settings.rangeExile)==1):
 			mutate(v,exile=True)
-		elif (rand==6 and random.randint(0,settings.rangeFix)==1):
+		if (rand==6 and random.randint(0,settings.rangeFix)==1):
 			mutate(v,fix=True)
 		v += 1
 
